@@ -446,8 +446,8 @@ CyHy stakeholders.
 - `last_change` [ISO date]: Timestamp indicating when this snapshot document
   was last updated
 - `latest` [boolean]: Is this the latest snapshot for this organization?
-- `networks` [list of strings]: CIDR blocks claimed by the organization
-  at the time this snapshot was generated
+- `networks` [list of strings]: CIDR blocks claimed by the organization (and
+  any included descendants) at the time this snapshot was generated
 - `owner` [string]: Organization that this snapshot is associated with
 - `parents` [ObjectId]: Identifier of the parent snapshot(s); used only
   for organizations with children; if this value is equal to the \_id
