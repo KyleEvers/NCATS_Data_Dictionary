@@ -431,18 +431,23 @@ The data in this collection is derived from IP addresses supplied by the
 CyHy stakeholders.
 
 - `_id` [ObjectId]: Internal database id of this snapshot document
+- `addresses_scanned` [integer]: Number of IP addresses included in this
+  snapshot that have been fully scanned by CyHy at least once, as of the time
+  this snapshot was generated
 - `cvss_average_all` [decimal]: Average CVSS score of all hosts in
   this snapshot
 - `cvss_average_vulnerable` [decimal]: Average CVSS score of
   vulnerable hosts in this snapshot
+- `descendants_included` [list of strings]: Identifiers of descendant
+  organizations (if any) whose data is included in this snapshot
 - `end_time` [ISO date]: Timestamp indicating when the last scan in this
-   snapshot was completed
+  snapshot was completed
 - `host_count` [integer]: Number of hosts detected in this snapshot
 - `last_change` [ISO date]: Timestamp indicating when this snapshot document
   was last updated
 - `latest` [boolean]: Is this the latest snapshot for this organization?
-- `networks` [list of strings]: CIDR blocks claimed by the organization
-  at the time this snapshot was generated
+- `networks` [list of strings]: CIDR blocks claimed by the organization (and
+  any included descendants) at the time this snapshot was generated
 - `owner` [string]: Organization that this snapshot is associated with
 - `parents` [ObjectId]: Identifier of the parent snapshot(s); used only
   for organizations with children; if this value is equal to the \_id
@@ -451,6 +456,11 @@ CyHy stakeholders.
   snapshot
 - `services` [dictionary]: Number of services detected in this snapshot,
   grouped by service name
+- `silent_port_count` [integer]: Total number of ports detected in this snapshot
+  whose service was detected as
+  ["tcpwrapped"](https://secwiki.org/w/FAQ\_tcpwrapped), indicating that a full
+  TCP handshake was completed during port scanning, but the connection was
+  closed before any data was sent
 - `start_time` [ISO date]: Timestamp indicating when the first scan in this
   snapshot was completed
 - `tix_msec_open`[dictionary]: Time a ticket has been open
