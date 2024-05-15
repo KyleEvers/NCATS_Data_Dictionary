@@ -441,7 +441,7 @@ CyHy stakeholders.
 - `descendants_included` [list of strings]: Identifiers of descendant
   organizations (if any) whose data is included in this snapshot
 - `end_time` [ISO date]: Timestamp indicating when the last scan in this
-   snapshot was completed
+  snapshot was completed
 - `host_count` [integer]: Number of hosts detected in this snapshot
 - `last_change` [ISO date]: Timestamp indicating when this snapshot document
   was last updated
